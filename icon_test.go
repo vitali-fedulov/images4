@@ -59,7 +59,7 @@ func TestArrIndex(t *testing.T) {
 
 func TestSet(t *testing.T) {
 	icon := sizedIcon(4)
-	set(icon, 4, image.Point{1, 1}, 13.5, 29.9, 95.9)
+	Set(icon, 4, image.Point{1, 1}, 13.5, 29.9, 95.9)
 	expected := sizedIcon(4)
 	expectedPixels := []float64{0, 0, 0, 0, 0, 13.5, 0, 0, 0, 0, 0,
 		0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 29.9, 0, 0, 0, 0,
@@ -82,7 +82,7 @@ func TestGet(t *testing.T) {
 	for i := range iconPix {
 		icon.Pixels[i] = uint16(iconPix[i] * 255)
 	}
-	c1, c2, c3 := get(icon, 4, image.Point{1, 1})
+	c1, c2, c3 := Get(icon, 4, image.Point{1, 1})
 	if math.Abs(float64(c1)-13.5) > 0.1 || math.Abs(float64(c2)-29.9) > 0.1 || math.Abs(float64(c3)-95.9) > 0.1 {
 		t.Errorf(
 			"Expected near 13.5, 29.9, 95.9, got %v, %v, %v.",

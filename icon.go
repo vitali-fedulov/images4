@@ -62,7 +62,7 @@ func IconNN(img image.Image) IconT {
 					sumB += b >> 8
 				}
 			}
-			set(largeIcon, largeIconSize, image.Point{x, y},
+			Set(largeIcon, largeIconSize, image.Point{x, y},
 				float64(sumR)*invSamplePixels2,
 				float64(sumG)*invSamplePixels2,
 				float64(sumB)*invSamplePixels2)
@@ -71,7 +71,7 @@ func IconNN(img image.Image) IconT {
 
 	// Box blur filter with resizing to the final icon of smaller size.
 
-	icon := sizedIcon(iconSize)
+	icon := sizedIcon(IconSize)
 	// Pixel positions in the final icon.
 	var xd, yd int
 	var c1, c2, c3, s1, s2, s3 float64
@@ -85,14 +85,14 @@ func IconNN(img image.Image) IconT {
 			for n := -1; n <= 1; n++ {
 				for m := -1; m <= 1; m++ {
 					c1, c2, c3 =
-						get(largeIcon, largeIconSize,
+						Get(largeIcon, largeIconSize,
 							image.Point{x + n, y + m})
 					s1, s2, s3 = s1+c1, s2+c2, s3+c3
 				}
 			}
 			yc, cb, cr = yCbCr(
 				s1*oneNinth, s2*oneNinth, s3*oneNinth)
-			set(icon, iconSize, image.Point{xd, yd},
+			Set(icon, IconSize, image.Point{xd, yd},
 				yc, cb, cr)
 			s1, s2, s3 = 0, 0, 0
 		}
@@ -106,7 +106,7 @@ func IconNN(img image.Image) IconT {
 // with nil values, for example for convenient error handling.
 // Then you can use icon.Pixels == nil condition.
 func EmptyIcon() (icon IconT) {
-	icon = sizedIcon(iconSize)
+	icon = sizedIcon(IconSize)
 	icon.Pixels = nil
 	return icon
 }
@@ -125,7 +125,8 @@ func arrIndex(p image.Point, size, ch int) (index int) {
 // Set places pixel values in an icon at a point.
 // c1, c2, c3 are color values for each channel
 // (RGB for example). Size is icon size.
-func set(icon IconT, size int, p image.Point, c1, c2, c3 float64) {
+// Exported to be used in package imagehash.
+func Set(icon IconT, size int, p image.Point, c1, c2, c3 float64) {
 	// Multiplication by 255 is basically encoding float64 as uint16.
 	icon.Pixels[arrIndex(p, size, 0)] = uint16(c1 * 255)
 	icon.Pixels[arrIndex(p, size, 1)] = uint16(c2 * 255)
@@ -135,7 +136,8 @@ func set(icon IconT, size int, p image.Point, c1, c2, c3 float64) {
 // Get reads pixel values in an icon at a point.
 // c1, c2, c3 are color values for each channel
 // (RGB for example).
-func get(icon IconT, size int, p image.Point) (c1, c2, c3 float64) {
+// Exported to be used in package imagehash.
+func Get(icon IconT, size int, p image.Point) (c1, c2, c3 float64) {
 	// Division by 255 is basically decoding uint16 into float64.
 	c1 = float64(icon.Pixels[arrIndex(p, size, 0)]) * one255th
 	c2 = float64(icon.Pixels[arrIndex(p, size, 1)]) * one255th
@@ -224,7 +226,7 @@ func (icon IconT) ToRGBA(size int) *image.RGBA {
 	img := image.NewRGBA(image.Rect(0, 0, size, size))
 	for x := 0; x < size; x++ {
 		for y := 0; y < size; y++ {
-			r, g, b := get(icon, size, image.Point{x, y})
+			r, g, b := Get(icon, size, image.Point{x, y})
 			img.Set(x, y,
 				color.RGBA{uint8(r), uint8(g), uint8(b), 255})
 		}

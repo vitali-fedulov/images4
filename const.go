@@ -4,14 +4,14 @@ const (
 
 	// Icon parameters.
 
-	// Image resolution of the icon
-	// is very small (11x11 pixels), therefore original
-	// image details are lost in downsampling, except
-	// when source images have very low resolution
-	// (e.g. favicons or simple logos). This is useful
-	// from the privacy perspective if you are to use
-	// generated icons in a large searchable database.
-	iconSize = 11
+	// Image resolution of the icon is very small
+	// (11x11 pixels), therefore original image details
+	// are lost in downsampling, except when source images
+	// have very low resolution (e.g. favicons or simple
+	// logos). This is useful from the privacy perspective
+	// if you are to use generated icons in a large searchable
+	// database.
+	IconSize = 11 // Exported to be used in package imagehash.
 	// Resampling rate defines how much information
 	// (how many pixels) from the source image are used
 	// to generate an icon. Too few will produce worse
@@ -30,7 +30,7 @@ const (
 	// Similarity thresholds.
 
 	// Euclidean distance threshold (squared) for Y-channel.
-	thY = float64(iconSize*iconSize) * float64(colorDiff*colorDiff) * euclCoeff
+	thY = float64(IconSize*IconSize) * float64(colorDiff*colorDiff) * euclCoeff
 	// Euclidean distance threshold (squared) for Cb and Cr channels.
 	thCbCr = thY * chanCoeff
 	// Proportion similarity threshold (5%).
@@ -38,8 +38,8 @@ const (
 
 	// Auxiliary constants.
 
-	numPix           = iconSize * iconSize
-	largeIconSize    = iconSize*2 + 1
+	numPix           = IconSize * IconSize
+	largeIconSize    = IconSize*2 + 1
 	resizedImgSize   = largeIconSize * samples
 	invSamplePixels2 = 1 / float64(samples*samples)
 	oneNinth         = 1 / float64(9)
