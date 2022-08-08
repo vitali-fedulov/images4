@@ -4,7 +4,7 @@ Near duplicates and resized images can be found with the package. No dependencie
 
 **Demo**: [similar image clustering](https://vitali-fedulov.github.io/similar.pictures/) based on similar algorithm.
 
-**This is the latest major version (v4)** of [v1/2](https://github.com/vitali-fedulov/images) and [v3](https://github.com/vitali-fedulov/images3). The changes vs v3 are: simplified func `Icon` input, more than 2x smaller memory footprint of icons, additional IconNN function, fixed GIF support, removal of dependencies, removal of hashes (a separate package for hashes will be created and linked from here soon).
+**This is the latest major version (v4)** of [v1/2](https://github.com/vitali-fedulov/images) and [v3](https://github.com/vitali-fedulov/images3). The changes vs v3 are: simplified func `Icon`, more than 2x reduction of icon memory footprint, removal of dependencies, removal of hashes (a separate package for hashes will be created and linked from here soon), fixed GIF support, new func `IconNN`.
 
 Func `Similar` gives a verdict whether 2 images are similar with well-tested default thresholds.
 
