@@ -1,4 +1,4 @@
-# Find similar images with Go
+# Find similar images with Go (LATEST VERSION)
 
 Near duplicates and resized images can be found with the package. No dependencies.
 
