@@ -6,11 +6,15 @@ Near duplicates and resized images can be found with the package. No dependencie
 
 **Versions**: This is the **latest major version 4** of older [v1/2](https://github.com/vitali-fedulov/images) and [v3](https://github.com/vitali-fedulov/images3). New changes in v4 vs v3 are: simplified func `Icon`, more than 2x reduction of icon memory footprint, removal of dependencies, removal of hashes (a separate package for hashes will be created and linked from here soon), fixed GIF support, new func `IconNN`. Overall goal of v4 is simplification and memory footprint reduction.
 
-Func `Similar` gives a verdict whether 2 images are similar with well-tested default thresholds.
+### Key functions
 
-Func `EucMetric` can be used instead, when you need different precision or want to sort by similarity. Func `PropMetric` can be used for customization of image proportion threshold.
+`Open` supports JPEG, PNG and GIF. But other image types can be used through third-party decoders, because input for func `Icon` is Golang `image.Image`.
 
-Func `Open` supports JPEG, PNG and GIF. But other image types can be used through third-party decoders, because input for func `Icon` is Golang `image.Image`.
+`Icon` produces "image hashes" called "icons", which will be used for comparision.
+
+`Similar` gives a verdict whether 2 images are similar with well-tested default thresholds.
+
+`EucMetric` can be used instead, when you need different precision or want to sort by similarity. Func `PropMetric` can be used for customization of image proportion threshold.
 
 [Go doc](https://pkg.go.dev/github.com/vitali-fedulov/images4) for code reference.
 
