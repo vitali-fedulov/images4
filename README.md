@@ -4,7 +4,7 @@ Near duplicates and resized images can be found with the package. No dependencie
 
 **Demo**: [similar image clustering](https://vitali-fedulov.github.io/similar.pictures/) based on similar algorithm.
 
-**Versions**: This is the **latest major version 4**. Previous versions are: [v1/v2 (images)](https://github.com/vitali-fedulov/images) and [v3 (images3)](https://github.com/vitali-fedulov/images3). Changes in v4 vs v3 are: simplified func `Icon`, more than 2x reduction of icon memory footprint, removal of dependencies, removal of hashes (a separate new package [imagehash](https://github.com/vitali-fedulov/imagehash) can be used for fast large scale preliminary search), fixed GIF support, new func `IconNN`. Overall goal of v4 is simplification and memory footprint reduction.
+**Versions**: This is the **latest major version images4**. Previous versions are [images](https://github.com/vitali-fedulov/images) and [images3](https://github.com/vitali-fedulov/images3). Changes in images4 vs images3 are: simplified func `Icon`, more than 2x reduction of icon memory footprint, removal of dependencies, removal of hashes (a separate new package [imagehash](https://github.com/vitali-fedulov/imagehash) can be used for fast large scale preliminary search), fixed GIF support, new func `IconNN`. Overall goal of v4 is simplification and memory footprint reduction.
 
 ### Key functions
 
@@ -65,3 +65,5 @@ Summary: Images are resized in a special way to squares of fixed size called "ic
 To increase precision you can either use your own thresholds in func `EucMetric` (and `PropMetric`) OR generate icons for image sub-regions and compare those icons.
 
 To speedup file processing you may want to generate icons for available image thumbnails. Specifically, many JPEG images contain [EXIF thumbnails](https://vitali-fedulov.github.io/similar.pictures/jpeg-thumbnail-reader.html), you could considerably speedup the reads by using decoded thumbnails to feed into func `Icon`. External packages to read thumbnails: [1](https://github.com/dsoprea/go-exif) and [2](https://github.com/rwcarlsen/goexif). A note of caution: in rare cases there could be [issues](https://security.stackexchange.com/questions/116552/the-history-of-thumbnails-or-just-a-previous-thumbnail-is-embedded-in-an-image/201785#201785) with thumbnails not matching image content. EXIF standard specification: [1](https://www.media.mit.edu/pia/Research/deepview/exif.html) and [2](https://www.exif.org/Exif2-2.PDF).
+
+To search in very large image collections (billions or more), use preliminary hash-table-based filtering with package [imagehash](https://github.com/vitali-fedulov/imagehash).
