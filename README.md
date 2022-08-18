@@ -2,7 +2,7 @@
 
 Near duplicates and resized images can be found with the package. No dependencies.
 
-**Demo**: [similar image clustering](https://vitali-fedulov.github.io/similar.pictures/) based on similar algorithm.
+**Demo**: [similar pictures search and clustering](https://vitali-fedulov.github.io/similar.pictures/) (deployed [from](https://github.com/vitali-fedulov/similar.pictures)).
 
 **Versions**:
 - this v4 (latest recommended),
