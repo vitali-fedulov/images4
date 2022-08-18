@@ -4,9 +4,14 @@ Near duplicates and resized images can be found with the package. No dependencie
 
 **Demo**: [similar image clustering](https://vitali-fedulov.github.io/similar.pictures/) based on similar algorithm.
 
-**Versions**: There are in total 3 version repositories: [images](https://github.com/vitali-fedulov/images) (oldest), [images3](https://github.com/vitali-fedulov/images3) (older), and this major version **images4 (latest, recommended)**.
+**Versions**:
+- this v4 (latest recommended),
+- [older v3](https://github.com/vitali-fedulov/images3),
+- [oldest v1/v2](https://github.com/vitali-fedulov/images).
 
-Changes in images4 vs images3 are: simplified func `Icon`, more than 2x reduction of icon memory footprint, removal of dependencies, removal of hashes (a separate new package [imagehash](https://github.com/vitali-fedulov/imagehash) can be used for fast large scale preliminary search), fixed GIF support, new func `IconNN`. Overall goal of v4 is simplification and memory footprint reduction.
+All versions will be kept available indefinitely.
+
+Release note (v4): simplified func `Icon`, more than 2x reduction of icon memory footprint, removal of dependencies, removal of hashes (a separate new package [imagehash](https://github.com/vitali-fedulov/imagehash) can be used for fast large scale preliminary search), fixed GIF support, new func `IconNN`. Overall goal of v4 is simplification and memory footprint reduction.
 
 ### Key functions
 
