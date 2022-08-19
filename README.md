@@ -11,7 +11,7 @@ Near duplicates and resized images can be found with the package. No dependencie
 
 All versions will be kept available indefinitely.
 
-Release note (v4): simplified func `Icon`, more than 2x reduction of icon memory footprint, removal of dependencies, removal of hashes (a separate new package [imagehash](https://github.com/vitali-fedulov/imagehash) can be used for fast large scale preliminary search), fixed GIF support, new func `IconNN`. Overall goal of v4 is simplification and memory footprint reduction.
+Release note (v4): simplified func `Icon`; more than 2x reduction of icon memory footprint; removal of all dependencies; removal of hashes (a separate new package [imagehash](https://github.com/vitali-fedulov/imagehash) can be used for fast large scale preliminary search); fixed GIF support; new func `IconNN`. The main improvements in v4 are package simplification and memory footprint reduction.
 
 ### Key functions
 
