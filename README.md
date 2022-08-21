@@ -5,9 +5,9 @@ Near duplicates and resized images can be found with the package. No dependencie
 **Demo**: [similar pictures search and clustering](https://vitali-fedulov.github.io/similar.pictures/) (deployed [from](https://github.com/vitali-fedulov/similar.pictures)).
 
 **Versions**:
-- this v4 (latest recommended),
-- [older v3](https://github.com/vitali-fedulov/images3),
-- [oldest v1/v2](https://github.com/vitali-fedulov/images).
+- v4 (/images4) - this repository, latest recommended,
+- [v3](https://github.com/vitali-fedulov/images3) (/images3),
+- [v1/v2](https://github.com/vitali-fedulov/images) (/images).
 
 All versions will be kept available indefinitely.
 
