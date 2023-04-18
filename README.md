@@ -15,19 +15,19 @@ Release note (v4): simplified func `Icon`; more than 2x reduction of icon memory
 
 ### Key functions
 
-`Open` supports JPEG, PNG and GIF. But other image types can be used through third-party decoders, because input for func `Icon` is Golang `image.Image`.
+- `Open` supports JPEG, PNG and GIF. But other image types can be used through third-party decoders, because input for func `Icon` is Golang `image.Image`.
 
-`Icon` produces "image hashes" called "icons", which will be used for comparision.
+- `Icon` produces "image hashes" called "icons", which will be used for comparision.
 
-`Similar` gives a verdict whether 2 images are similar with well-tested default thresholds. To see the thresholds use `DefaultThresholds`. Rotations and mirrors are not taken in account in `Similar`. Note that orientations can be coded as flags in image file EXIF.
+- `Similar` gives a verdict whether 2 images are similar with well-tested default thresholds. To see the thresholds use `DefaultThresholds`. Rotations and mirrors are not taken in account.
 
-`Similar90270` is like above, but in addition compares to images rotated ±90°. This function will return more results than `Similar` and includes similarities of `Similar`.
+- `Similar90270` is like `Similar`, but in addition compares to images rotated ±90°. This function is a superset of `Similar`, so you can simply use it instead.
 
-`EucMetric` can be used instead of `Similar`, when you need different precision or want to sort by similarity. Func `PropMetric` can be used for customization of image proportion threshold. Both functions relate to non-rotated images, as in func `Similar`.
+- `EucMetric` can be used instead of `Similar`, when you need different precision or want to sort by similarity. Func `PropMetric` can be used for customization of image proportion threshold. Both functions compare non-rotated images (as `Similar` does).
 
-`DefaultThresholds` prints default thresholds used in func `Similar` and `Similar90270`, as a starting point for selecting thresholds on `EucMetric` and `PropMetric`.
+- `DefaultThresholds` prints default thresholds used in func `Similar` and `Similar90270`, as a starting point for selecting thresholds on `EucMetric` and `PropMetric`.
 
-`Rotate90` turns an icon 90° clockwise. This is useful for developing custom similarity function for rotated images with `EucMetric` and `PropMetric`. Or if you also decide to compare to images rotated +180° (by applying `Rotate90` twice).
+- `Rotate90` turns an icon 90° clockwise. This is useful for developing custom similarity function for rotated images with `EucMetric` and `PropMetric`. Or if you compare to images rotated +180° (by applying `Rotate90` twice).
 
 [Go doc](https://pkg.go.dev/github.com/vitali-fedulov/images4) for code reference.
 
