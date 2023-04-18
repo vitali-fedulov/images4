@@ -1,5 +1,7 @@
 package images4
 
+import "fmt"
+
 // Similar returns similarity verdict based on Euclidean
 // and proportion similarity.
 func Similar(iconA, iconB IconT) bool {
@@ -88,4 +90,30 @@ func EucMetric(iconA, iconB IconT) (m1, m2, m3 float64) {
 	}
 
 	return m1, m2, m3
+}
+
+// Print default thresholds for func Similar.
+func DefaultThresholds() {
+	fmt.Printf("*** Default thresholds ***")
+	fmt.Printf("\nEuclidean distance thresholds (YCbCr): m1=%v, m2=%v, m3=%v", thY, thCbCr, thCbCr)
+	fmt.Printf("\nProportion threshold: m=%v\n\n", thProp)
+}
+
+// Similar90270 works like Similar, but also considers rotations of ±90°.
+// Those are rotations users might reasonably often do.
+func Similar90270(iconA, iconB IconT) bool {
+
+	if Similar(iconA, iconB) {
+		return true
+	}
+
+	if Similar(iconA, Rotate90(iconB)) {
+		return true
+	}
+
+	if Similar(iconA, Rotate270(iconB)) {
+		return true
+	}
+
+	return false
 }

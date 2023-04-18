@@ -81,3 +81,35 @@ func TestEucSimilar(t *testing.T) {
 	testEucSimilar("uniform-green.png", "uniform-white.png", false, t)
 	testEucSimilar("uniform-white.png", "uniform-white.png", true, t)
 }
+
+func TestSimilar90270(t *testing.T) {
+
+	img0, _ := Open(path.Join("testdata", "rotate", "0.jpg"))
+	img90, _ := Open(path.Join("testdata", "rotate", "90.jpg"))
+	img180, _ := Open(path.Join("testdata", "rotate", "180.jpg"))
+	img270, _ := Open(path.Join("testdata", "rotate", "270.jpg"))
+
+	icon0 := Icon(img0)
+	icon90 := Icon(img90)
+	icon180 := Icon(img180)
+	icon270 := Icon(img270)
+
+	if !Similar90270(icon0, icon90) {
+		t.Errorf("0.jpg must be similar to 90.jpg")
+	}
+	if Similar90270(icon0, icon180) {
+		t.Errorf("0.jpg must be NOT similar to 180.jpg")
+	}
+
+	if !Similar90270(icon0, icon270) {
+		t.Errorf("0.jpg must be similar to 270.jpg")
+	}
+
+	if !Similar90270(icon90, icon180) {
+		t.Errorf("90.jpg must be similar to 180.jpg")
+	}
+
+	if Similar90270(icon90, icon270) {
+		t.Errorf("90.jpg must be NOT similar to 270.jpg")
+	}
+}

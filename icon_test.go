@@ -156,3 +156,25 @@ func TestNormalize(t *testing.T) {
 
 	testNormalize(src, want, t)
 }
+
+func TestRotate(t *testing.T) {
+
+	img0, _ := Open(path.Join("testdata", "rotate", "0.jpg"))
+	img90, _ := Open(path.Join("testdata", "rotate", "90.jpg"))
+	icon0 := Icon(img0)
+	icon90 := Icon(img90)
+
+	if !Similar(Rotate90(icon0), icon90) {
+		t.Errorf("Rotate(icon0) is not similar to icon90")
+		return
+	}
+
+	img270, _ := Open(path.Join("testdata", "rotate", "270.jpg"))
+	icon270 := Icon(img270)
+
+	if !Similar(Rotate270(icon0), icon270) {
+		t.Errorf("Rotate(icon0) is not similar to icon270")
+		return
+	}
+
+}

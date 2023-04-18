@@ -19,9 +19,15 @@ Release note (v4): simplified func `Icon`; more than 2x reduction of icon memory
 
 `Icon` produces "image hashes" called "icons", which will be used for comparision.
 
-`Similar` gives a verdict whether 2 images are similar with well-tested default thresholds.
+`Similar` gives a verdict whether 2 images are similar with well-tested default thresholds. To see the thresholds use `DefaultThresholds`. Rotations and mirrors are not taken in account in `Similar`. Note that orientations can be coded as flags in image file EXIF.
 
-`EucMetric` can be used instead, when you need different precision or want to sort by similarity. Func `PropMetric` can be used for customization of image proportion threshold.
+`Similar90270` is like above, but in addition compares to images rotated ±90°. This function will return more results than `Similar` and includes similarities of `Similar`.
+
+`EucMetric` can be used instead of `Similar`, when you need different precision or want to sort by similarity. Func `PropMetric` can be used for customization of image proportion threshold. Both functions relate to non-rotated images, as in func `Similar`.
+
+`DefaultThresholds` prints default thresholds used in func `Similar` and `Similar90270`, as a starting point for selecting thresholds on `EucMetric` and `PropMetric`.
+
+`Rotate90` and `Rotate270` turn an icon +90° or -90° clockwise. Those are useful if you test for custom similarity with `EucMetric` and `PropMetric` for rotated images. Or if you also decide to compare to images rotated +180° (by applying `Rotate90` twice).
 
 [Go doc](https://pkg.go.dev/github.com/vitali-fedulov/images4) for code reference.
 
@@ -46,13 +52,14 @@ func main() {
 	img2, _ := images4.Open(path2)
 
 	// Icons are compact image representations (image "hashes").
-	// Name "hash" is not used intentionally.
+	// Name "hash" is reserved for hash tables (in package imagehash).
 	icon1 := images4.Icon(img1)
 	icon2 := images4.Icon(img2)
 
 	// Comparison.
 	// Images are not used directly. Icons are used instead,
 	// because they have tiny memory footprint and fast to compare.
+	// Use func Similar90270 to include images rotated right and left.
 	if images4.Similar(icon1, icon2) {
 		fmt.Println("Images are similar.")
 	} else {
