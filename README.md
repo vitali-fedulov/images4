@@ -23,11 +23,11 @@ Release note (v4): simplified func `Icon`; more than 2x reduction of icon memory
 
 - `Similar90270` is like `Similar`, but in addition compares to images rotated ±90°. This function is a superset of `Similar`, so you can simply use it instead.
 
-- `EucMetric` can be used instead of `Similar`, when you need different precision or want to sort by similarity. Func `PropMetric` can be used for customization of image proportion threshold. Both functions compare non-rotated images (as `Similar` does).
+- `EucMetric` can be used instead of `Similar` when you need different precision or want to sort by similarity. Func `PropMetric` can be used for customization of image proportion threshold. Both functions compare non-rotated images (as `Similar` does).
 
 - `DefaultThresholds` prints default thresholds used in func `Similar` and `Similar90270`, as a starting point for selecting thresholds on `EucMetric` and `PropMetric`.
 
-- `Rotate90` turns an icon 90° clockwise. This is useful for developing custom similarity function for rotated images with `EucMetric` and `PropMetric`. Or if you compare to images rotated +180° (by applying `Rotate90` twice).
+- `Rotate90` turns an icon 90° clockwise. This is useful for developing custom similarity function for rotated images with `EucMetric` and `PropMetric`. Or if you compare to images rotated 180° (by applying `Rotate90` twice).
 
 [Go doc](https://pkg.go.dev/github.com/vitali-fedulov/images4) for code reference.
 
