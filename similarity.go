@@ -107,11 +107,13 @@ func Similar90270(iconA, iconB IconT) bool {
 		return true
 	}
 
+	// iconB rotated 90 degrees.
 	if Similar(iconA, Rotate90(iconB)) {
 		return true
 	}
 
-	if Similar(iconA, Rotate270(iconB)) {
+	// As if iconB was rotated 270 degrees.
+	if Similar(Rotate90(iconA), iconB) {
 		return true
 	}
 

@@ -168,13 +168,4 @@ func TestRotate(t *testing.T) {
 		t.Errorf("Rotate(icon0) is not similar to icon90")
 		return
 	}
-
-	img270, _ := Open(path.Join("testdata", "rotate", "270.jpg"))
-	icon270 := Icon(img270)
-
-	if !Similar(Rotate270(icon0), icon270) {
-		t.Errorf("Rotate(icon0) is not similar to icon270")
-		return
-	}
-
 }

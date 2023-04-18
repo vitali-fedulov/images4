@@ -27,7 +27,7 @@ Release note (v4): simplified func `Icon`; more than 2x reduction of icon memory
 
 `DefaultThresholds` prints default thresholds used in func `Similar` and `Similar90270`, as a starting point for selecting thresholds on `EucMetric` and `PropMetric`.
 
-`Rotate90` and `Rotate270` turn an icon +90° or -90° clockwise. Those are useful if you test for custom similarity with `EucMetric` and `PropMetric` for rotated images. Or if you also decide to compare to images rotated +180° (by applying `Rotate90` twice).
+`Rotate90` turns an icon 90° clockwise. This is useful for developing custom similarity function for rotated images with `EucMetric` and `PropMetric`. Or if you also decide to compare to images rotated +180° (by applying `Rotate90` twice).
 
 [Go doc](https://pkg.go.dev/github.com/vitali-fedulov/images4) for code reference.
 

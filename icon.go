@@ -252,22 +252,3 @@ func Rotate90(icon IconT) IconT {
 
 	return rotated
 }
-
-// Rotate rotates an icon by 270 degrees clockwise.
-func Rotate270(icon IconT) IconT {
-
-	var c1, c2, c3 float64
-	rotated := sizedIcon(IconSize)
-	for x := 0; x < IconSize; x++ {
-		for y := 0; y < IconSize; y++ {
-			c1, c2, c3 = Get(icon, IconSize, image.Point{x, y})
-			Set(rotated, IconSize, image.Point{y, IconSize - 1 - x},
-				c1, c2, c3)
-		}
-	}
-
-	// Swap image sizes.
-	rotated.ImgSize.X, rotated.ImgSize.Y = icon.ImgSize.Y, icon.ImgSize.X
-
-	return rotated
-}
