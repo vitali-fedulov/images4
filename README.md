@@ -21,7 +21,7 @@ Release note (v4): simplified func `Icon`; more than 2x reduction of icon memory
 
 - `Similar` gives a verdict whether 2 images are similar with well-tested default thresholds. To see the thresholds use `DefaultThresholds`. Rotations and mirrors are not taken in account.
 
-- `Similar90270` is like above, but in addition compares to images rotated ±90°. This function is a superset of `Similar`, so you can simply use it instead.
+- `Similar90270` is a superset of `Similar` by additional comparison to images rotated ±90°. Such rotations are relatively common, even by accident when taking pictures on mobile phones.
 
 - `EucMetric` can be used instead of `Similar` when you need different precision or want to sort by similarity.
 
