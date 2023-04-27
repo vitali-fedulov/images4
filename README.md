@@ -11,28 +11,6 @@ Resized images and near duplicates can be found with the package. No dependencie
 
 All versions will be kept available indefinitely.
 
-Release note (v4): simplified func `Icon`; more than 2x reduction of icon memory footprint; removal of all dependencies; removal of hashes (a separate new package [imagehash](https://github.com/vitali-fedulov/imagehash) can be used for fast large scale preliminary search); fixed GIF support; new func `IconNN`. The main improvements in v4 are package simplification and memory footprint reduction.
-
-### Main functions
-
-- `Open` supports JPEG, PNG and GIF. But other image types can be used through third-party decoders, because input for func `Icon` is Golang `image.Image`.
-
-- `Icon` produces "image hashes" called "icons", which will be used for comparision.
-
-- `Similar` gives a verdict whether 2 images are similar with well-tested default thresholds. To see the thresholds use `DefaultThresholds`. Rotations and mirrors are not taken in account.
-
-- `Similar90270` is a superset of `Similar` by additional comparison to images rotated ±90°. Such rotations are relatively common, even by accident when taking pictures on mobile phones.
-
-- `EucMetric` can be used instead of `Similar` when you need different precision or want to sort by similarity. [Example](https://github.com/egor-romanov/png2gif/blob/main/main.go#L450) (not mine).
-
-- `PropMetric` allows customization of image proportion threshold.
-
-- `DefaultThresholds` prints default thresholds used in func `Similar` and `Similar90270`, as a starting point for selecting thresholds on `EucMetric` and `PropMetric`.
-
-- `Rotate90` turns an icon 90° clockwise. This is useful for developing custom similarity function for rotated images with `EucMetric` and `PropMetric`. With the function you can also compare to images rotated 180° (by applying `Rotate90` twice).
-
-[Go doc](https://pkg.go.dev/github.com/vitali-fedulov/images4) for code reference.
-
 ## Example of comparing 2 images
 
 ```go
@@ -53,15 +31,11 @@ func main() {
 	img1, _ := images4.Open(path1)
 	img2, _ := images4.Open(path2)
 
-	// Icons are compact image representations (image "hashes").
-	// Name "hash" is reserved for hash tables (in package imagehash).
+	// Icons are compact image representations (image "hashes"). Name "hash" is reserved for "true" hashes in package imagehash.
 	icon1 := images4.Icon(img1)
 	icon2 := images4.Icon(img2)
 
-	// Comparison.
-	// Images are not used directly. Icons are used instead,
-	// because they have tiny memory footprint and fast to compare.
-	// Use func Similar90270 to include images rotated right and left.
+	// Comparison. Images are not used directly. Icons are used instead, because they have tiny memory footprint and fast to compare. If you need to include images rotated right and left use func Similar90270.
 	if images4.Similar(icon1, icon2) {
 		fmt.Println("Images are similar.")
 	} else {
@@ -69,6 +43,27 @@ func main() {
 	}
 }
 ```
+
+## Main functions
+
+- `Open` supports JPEG, PNG and GIF. But other image types can be used through third-party decoders, because input for func `Icon` is Golang `image.Image`.
+
+- `Icon` produces "image hashes" called "icons", which will be used for comparision.
+
+- `Similar` gives a verdict whether 2 images are similar with well-tested default thresholds. To see the thresholds use `DefaultThresholds`. Rotations and mirrors are not taken in account.
+
+- `Similar90270` is a superset of `Similar` by additional comparison to images rotated ±90°. Such rotations are relatively common, even by accident when taking pictures on mobile phones.
+
+- `EucMetric` can be used instead of `Similar` when you need different precision or want to sort by similarity. [Example](https://github.com/egor-romanov/png2gif/blob/main/main.go#L450) (not mine).
+
+- `PropMetric` allows customization of image proportion threshold.
+
+- `DefaultThresholds` prints default thresholds used in func `Similar` and `Similar90270`, as a starting point for selecting thresholds on `EucMetric` and `PropMetric`.
+
+- `Rotate90` turns an icon 90° clockwise. This is useful for developing custom similarity function for rotated images with `EucMetric` and `PropMetric`. With the function you can also compare to images rotated 180° (by applying `Rotate90` twice).
+
+[Go doc](https://pkg.go.dev/github.com/vitali-fedulov/images4) for code reference.
+
 
 ## Algorithm
 
