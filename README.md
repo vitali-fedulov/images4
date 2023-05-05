@@ -1,6 +1,6 @@
 # Find similar images with Go (LATEST VERSION)
 
-Resized images and near duplicates can be found with the package. No dependencies.
+Resized images and near duplicates can be found with the package. **No dependencies**.
 
 **Demo**: [similar pictures search and clustering](https://vitali-fedulov.github.io/similar.pictures/) (deployed [from](https://github.com/vitali-fedulov/similar.pictures)).
 
