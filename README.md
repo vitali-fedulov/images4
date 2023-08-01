@@ -4,8 +4,8 @@ Resized images and near duplicates can be found with the package. **No dependenc
 
 **Demo**: [similar pictures search and clustering](https://vitali-fedulov.github.io/similar.pictures/) (deployed [from](https://github.com/vitali-fedulov/similar.pictures)).
 
-Versions are mutually incompatible (as semantic major). All versions will be kept available indefinitely:
-| Version | Repository | Comment |
+Major versions are semantic. They have own repositories and are mutually incompatible. The repositories will be kept available indefinitely.
+| Major version | Repository | Comment |
 | ----------- | ---------- | ----------|
 | 4 | images4 - this | recommended |
 | 3 | [images3](https://github.com/vitali-fedulov/images3) | good, but less optimized |
