@@ -46,7 +46,7 @@ func main() {
 
 ## Main functions
 
-- `Open` supports JPEG, PNG and GIF. But other image types can be used through third-party decoders, because input for func `Icon` is Golang `image.Image`.
+- `Open` supports JPEG, PNG and GIF. But other image types can be used through third-party decoders, because input for func `Icon` is Golang `image.Image`. [Example fork](https://github.com/Pineapples27/images4) (not mine) expanded with support of WEBP images.
 
 - `Icon` produces "image hashes" called "icons", which will be used for comparision.
 
@@ -54,7 +54,7 @@ func main() {
 
 - `Similar90270` is a superset of `Similar` by additional comparison to images rotated ±90°. Such rotations are relatively common, even by accident when taking pictures on mobile phones.
 
-- `EucMetric` can be used instead of `Similar` when you need different precision or want to sort by similarity. [Example](https://github.com/egor-romanov/png2gif/blob/main/main.go#L450) (not mine).
+- `EucMetric` can be used instead of `Similar` when you need different precision or want to sort by similarity. [Example](https://github.com/egor-romanov/png2gif/blob/main/main.go#L450) (not mine) of custom similarity function.
 
 - `PropMetric` allows customization of image proportion threshold.
 
