@@ -49,8 +49,8 @@ func resizeByNearest(
 	for y := 0; y < dstSize.Y; y++ {
 		for x := 0; x < dstSize.X; x++ {
 			r, g, b, a = src.At(
-				int(float64(x)*xScale+float64(xMin)),
-				int(float64(y)*yScale+float64(yMin))).RGBA()
+				int(float64(x)*xScale)+xMin,
+				int(float64(y)*yScale)+yMin).RGBA()
 			dst.Set(x, y, color.RGBA{
 				uint8(r >> 8),
 				uint8(g >> 8),
