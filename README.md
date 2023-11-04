@@ -7,7 +7,7 @@ Resized images and near duplicates can be found with the package. **No dependenc
 Major versions are semantic. They have own repositories and are mutually incompatible. The repositories will be kept available indefinitely.
 | Major version | Repository | Comment |
 | ----------- | ---------- | ----------|
-| 4 | images4 - this | recommended |
+| 4 | images4 - this | recommended; fast hash prefiltering (re)moved to [imagehash](https://github.com/vitali-fedulov/imagehash) |
 | 3 | [images3](https://github.com/vitali-fedulov/images3) | good, but less optimized |
 | 1, 2 | [images](https://github.com/vitali-fedulov/images) | good, legacy code |
 
