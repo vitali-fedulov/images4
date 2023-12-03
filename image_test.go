@@ -35,7 +35,7 @@ func TestResizeByNearest(t *testing.T) {
 		if err != nil {
 			t.Error("Cannot decode", path.Join(testDir, table.outFile))
 		}
-		resampled, srcSize := resizeByNearest(inImg,
+		resampled, srcSize := ResizeByNearest(inImg,
 			image.Point{table.dstX, table.dstY})
 		if !reflect.DeepEqual(
 			outImg.(*image.RGBA), &resampled) ||

@@ -24,10 +24,10 @@ func Open(path string) (img image.Image, err error) {
 	return img, err
 }
 
-// resizeByNearest resizes an image to the destination size
+// ResizeByNearest resizes an image to the destination size
 // with the nearest neighbour method. It also returns the source
 // image size.
-func resizeByNearest(
+func ResizeByNearest(
 	src image.Image, dstSize image.Point) (
 	dst image.RGBA, srcSize image.Point) {
 	// Original image size.

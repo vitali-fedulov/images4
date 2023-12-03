@@ -42,7 +42,7 @@ func IconNN(img image.Image) IconT {
 	// Resizing to a large icon approximating average color
 	// values of the source image. YCbCr space is used instead
 	// of RGB for better results in image comparison.
-	resImg, imgSize := resizeByNearest(
+	resImg, imgSize := ResizeByNearest(
 		img, image.Point{resizedImgSize, resizedImgSize})
 	largeIcon := sizedIcon(largeIconSize)
 	var r, g, b, sumR, sumG, sumB uint32
