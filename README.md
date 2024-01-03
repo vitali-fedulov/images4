@@ -4,7 +4,7 @@ Resized and near duplicate image comparison. **No dependencies**.
 
 **Demo**: [similar pictures search and clustering](https://vitali-fedulov.github.io/similar.pictures/) (pure in-browser JS app served [from](https://github.com/vitali-fedulov/similar.pictures)).
 
-Major versions are semantic. They have own repositories and are mutually incompatible.
+Major (semantic) versions have their own repositories and are mutually incompatible:
 | Major version | Repository | Comment |
 | ----------- | ---------- | ----------|
 | 4 | images4 - this | recommended; fast hash prefiltering (re)moved to [imagehash](https://github.com/vitali-fedulov/imagehash) |
