@@ -2,7 +2,7 @@
 
 Resized images and near duplicates can be found with the package. **No dependencies**.
 
-**Demo**: [similar pictures search and clustering](https://vitali-fedulov.github.io/similar.pictures/) (served [from](https://github.com/vitali-fedulov/similar.pictures)).
+**Demo**: [similar pictures search and clustering](https://vitali-fedulov.github.io/similar.pictures/) (pure frontend HTML/JS served [from](https://github.com/vitali-fedulov/similar.pictures)).
 
 Major versions are semantic. They have own repositories and are mutually incompatible. The repositories will be kept available indefinitely.
 | Major version | Repository | Comment |
