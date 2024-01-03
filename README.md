@@ -1,6 +1,6 @@
 # Find similar images with Go (LATEST VERSION)
 
-Resized and near duplicate image finder. **No dependencies**.
+Resized and near duplicate image comparison. **No dependencies**.
 
 **Demo**: [similar pictures search and clustering](https://vitali-fedulov.github.io/similar.pictures/) (pure in-browser JS app served [from](https://github.com/vitali-fedulov/similar.pictures)).
 
