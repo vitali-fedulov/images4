@@ -19,7 +19,7 @@ type CustomCoefficients struct {
 // if necessary. All coefficients set to 0 correspond to identical images,
 // for example an image file copy. All coefficients equal to 1 make func
 // CustomSimilar equivalent to func Similar.
-func CustomSimilar(iconA, iconB IconT, coeff CustomCoefficients) bool {
+func CustomSimilar(iconA, iconB IconT, coeff *CustomCoefficients) bool {
 
 	if !customPropSimilar(iconA, iconB, coeff) {
 		return false
@@ -30,11 +30,11 @@ func CustomSimilar(iconA, iconB IconT, coeff CustomCoefficients) bool {
 	return true
 }
 
-func customPropSimilar(iconA, iconB IconT, coeff CustomCoefficients) bool {
+func customPropSimilar(iconA, iconB IconT, coeff *CustomCoefficients) bool {
 	return PropMetric(iconA, iconB) <= thProp*coeff.Prop
 }
 
-func customEucSimilar(iconA, iconB IconT, coeff CustomCoefficients) bool {
+func customEucSimilar(iconA, iconB IconT, coeff *CustomCoefficients) bool {
 
 	m1, m2, m3 := EucMetric(iconA, iconB)
 
@@ -45,7 +45,7 @@ func customEucSimilar(iconA, iconB IconT, coeff CustomCoefficients) bool {
 
 // Similar90270 works like Similar, but also considers rotations of ±90°.
 // Those are rotations users might reasonably often do.
-func CustomSimilar90270(iconA, iconB IconT, coeff CustomCoefficients) bool {
+func CustomSimilar90270(iconA, iconB IconT, coeff *CustomCoefficients) bool {
 
 	if CustomSimilar(iconA, iconB, coeff) {
 		return true
