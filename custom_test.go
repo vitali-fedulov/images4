@@ -19,7 +19,7 @@ func TestCustomSimilar(t *testing.T) {
 		t.Errorf("distorted.jpg is NOT similar to large.jpg")
 	}
 
-	if !CustomSimilar(icon1, icon2, &CustomCoefficients{1, 1, 1, 10}) {
+	if !CustomSimilar(icon1, icon2, CustomCoefficients{1, 1, 1, 10}) {
 		t.Errorf("distorted.jpg IS similar to large.jpg, assuming proportion differences are widely tolerated.")
 	}
 
@@ -36,36 +36,36 @@ func TestCustomSimilar(t *testing.T) {
 	}
 
 	// Luma.
-	if CustomSimilar(icon1, icon2, &CustomCoefficients{0, 1, 1, 1}) {
+	if CustomSimilar(icon1, icon2, CustomCoefficients{0, 1, 1, 1}) {
 		t.Errorf("1.jpg is NOT IDENTICAL to 2.jpg")
 	}
 
 	// Luma.
-	if CustomSimilar(icon1, icon2, &CustomCoefficients{0.4, 1, 1, 1}) {
+	if CustomSimilar(icon1, icon2, CustomCoefficients{0.4, 1, 1, 1}) {
 		t.Errorf("1.jpg is similar to 2.jpg, BUT NOT VERY SIMILAR")
 	}
 
 	// Chrominance b.
-	if CustomSimilar(icon1, icon2, &CustomCoefficients{1, 0.1, 1, 1}) {
+	if CustomSimilar(icon1, icon2, CustomCoefficients{1, 0.1, 1, 1}) {
 		t.Errorf("1.jpg is similar to 2.jpg, BUT NOT VERY SIMILAR")
 	}
 
 	// Chrominance c.
-	if CustomSimilar(icon1, icon2, &CustomCoefficients{1, 1, 0.1, 1}) {
+	if CustomSimilar(icon1, icon2, CustomCoefficients{1, 1, 0.1, 1}) {
 		t.Errorf("1.jpg is similar to 2.jpg, BUT NOT VERY SIMILAR")
 	}
 
 	// Image comparison to itself (or its own copy).
 
-	if !CustomSimilar(icon1, icon1, &CustomCoefficients{0, 0, 0, 0}) {
+	if !CustomSimilar(icon1, icon1, CustomCoefficients{0, 0, 0, 0}) {
 		t.Errorf("1.jpg IS IDENTICAL to itself")
 	}
 
-	if !CustomSimilar(icon1, icon1, &CustomCoefficients{0.5, 0.5, 0.5, 0.5}) {
+	if !CustomSimilar(icon1, icon1, CustomCoefficients{0.5, 0.5, 0.5, 0.5}) {
 		t.Errorf("1.jpg IS IDENTICAL to itself")
 	}
 
-	if !CustomSimilar(icon1, icon1, &CustomCoefficients{1, 1, 1, 1}) {
+	if !CustomSimilar(icon1, icon1, CustomCoefficients{1, 1, 1, 1}) {
 		t.Errorf("1.jpg IS IDENTICAL to itself")
 	}
 
