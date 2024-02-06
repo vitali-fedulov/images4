@@ -68,7 +68,7 @@ Full code documentation: [Go doc](https://pkg.go.dev/github.com/vitali-fedulov/i
 
 - `Rotate90` turns an icon 90° clockwise. This is useful for developing custom similarity function for rotated images with 'EucMetric' and 'PropMetric'. With the function you can also compare to images rotated 180° (by applying 'Rotate90' twice).
 
-- `ResizeByNearest` is an image resizing function, which is useful for fast identification of identical images and development of custom distance metrics not involving any of the above comparison functions.
+- `ResizeByNearest` is an image resizing function useful for fast identification of identical images and development of custom distance metrics not involving any of the above comparison functions.
 
 
 ## Algorithm
