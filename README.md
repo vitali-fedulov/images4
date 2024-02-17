@@ -11,6 +11,8 @@ Major (semantic) versions have their own repositories and are mutually incompati
 | 3 | [images3](https://github.com/vitali-fedulov/images3) | good, but less optimized |
 | 1, 2 | [images](https://github.com/vitali-fedulov/images) | good, legacy code |
 
+[Go doc](https://pkg.go.dev/github.com/vitali-fedulov/images4) - for full code documentation.
+
 ## Example of comparing 2 images
 
 ```go
@@ -43,8 +45,6 @@ func main() {
 ```
 
 ## Main functions
-
-Full code documentation: [Go doc](https://pkg.go.dev/github.com/vitali-fedulov/images4)
 
 - `Open` decodes JPEG, PNG and GIF. But other types can be opened with third-party decoders, because the input to func 'Icon' is Golang image.Image. [Example fork](https://github.com/Pineapples27/images4) (not mine) expanded with support of WEBP images.
 
