@@ -1,6 +1,6 @@
 # Find similar images with Go (LATEST VERSION)
 
-Resized and near duplicate image comparison. **No dependencies**. Also consider related package [imagehash2](https://github.com/vitali-fedulov/imagehash2) for large scale search.
+Resized and near duplicate image comparison. **No dependencies**. Related package [imagehash2](https://github.com/vitali-fedulov/imagehash2) for large scale search.
 
 **Demo**: [similar pictures search and clustering](https://vitali-fedulov.github.io/similar.pictures/) (pure in-browser JS app served [from](https://github.com/vitali-fedulov/similar.pictures)).
 
