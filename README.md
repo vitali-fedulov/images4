@@ -7,7 +7,7 @@ Resized and near duplicate image comparison. **No dependencies**.
 Major (semantic) versions have their own repositories and are mutually incompatible:
 | Major version | Repository | Comment |
 | ----------- | ---------- | ----------|
-| 4 | images4 - this | recommended; fast hash prefiltering (re)moved to [imagehash](https://github.com/vitali-fedulov/imagehash) |
+| 4 | images4 - this | recommended; fast hash prefiltering (re)moved to [imagehash2](https://github.com/vitali-fedulov/imagehash2) |
 | 3 | [images3](https://github.com/vitali-fedulov/images3) | good, but less optimized |
 | 1, 2 | [images](https://github.com/vitali-fedulov/images) | good, legacy code |
 
@@ -48,7 +48,7 @@ func main() {
 
 - `Open` decodes JPEG, PNG and GIF. But other types can be opened with third-party decoders, because the input to func 'Icon' is Golang image.Image. [Example fork](https://github.com/Pineapples27/images4) (not mine) expanded with support of WEBP images.
 
-- `Icon` produces an image hash-like struct called "icon", which will be used for comparision. Side note: name "hash" is reserved for true hash tables in related package for faster comparison [imagehash](https://github.com/vitali-fedulov/imagehash).
+- `Icon` produces an image hash-like struct called "icon", which will be used for comparision. Side note: name "hash" is reserved for true hash tables in related package for faster comparison [imagehash2](https://github.com/vitali-fedulov/imagehash2).
 
 - `Similar` gives a verdict whether 2 images are similar with well-tested default thresholds. Rotations and mirrors are not taken in account.
 
@@ -79,7 +79,7 @@ Images are resampled and resized to squares of fixed size called "icons". Euclid
 
 ## Speed and precision
 
-**To considerably accelerate comparison in large image collections** (thousands and more), use hash-table pre-filtering with package [imagehash](https://github.com/vitali-fedulov/imagehash).
+**To considerably accelerate comparison in large image collections** (thousands and more), use hash-table pre-filtering with package [imagehash2](https://github.com/vitali-fedulov/imagehash2).
 
 **To considerably accelerate image decoding** you can generate icons for embedded image thumbnails. Specifically, many JPEG images contain [EXIF thumbnails](https://vitali-fedulov.github.io/similar.pictures/jpeg-thumbnail-reader.html). Packages to read thumbnails: [1](https://github.com/dsoprea/go-exif) and [2](https://github.com/rwcarlsen/goexif). A note of caution: in rare cases there could be [issues](https://security.stackexchange.com/questions/116552/the-history-of-thumbnails-or-just-a-previous-thumbnail-is-embedded-in-an-image/201785#201785) with thumbnails not matching image content. EXIF standard specification: [1](https://www.media.mit.edu/pia/Research/deepview/exif.html) and [2](https://www.exif.org/Exif2-2.PDF).
 
